@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Turbaza::Application.config.secret_key_base = 'a3628c1a111a0ec788af24a053dedf9c7f56fe7286f031da82e640be612505e85418a6c320adc77a362b355afe1bb67c160ecb56b0210c9899a0fad3638f4c3d'
+Turbaza::Application.config.secret_key_base = 'a7638338a103d7a2082c4a92063b2ba13111d201e3ec5bb6370a3a9bfbd9291a54ca4a32ed69daa211d73c5567c36e3e0586656e8c16a607badc3831053db848'
