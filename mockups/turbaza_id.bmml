@@ -1,0 +1,67 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1308" measuredH="497" mockupW="1284" mockupH="481">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::LinkBar" x="24" y="16" w="-1" h="-1" measuredW="239" measuredH="19" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u0413%u043B%u0430%u0432%u043D%u0430%u044F%2C%20%u0421%u0442%u0440%u0430%u043D%u044B%2C%20%u0420%u0435%u0433%u0438%u043E%u043D%u044B%2C%20%u0413%u043E%u0440%u043E%u0434%u0430</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::HRule" x="45" y="460" w="1263" h="-1" measuredW="100" measuredH="10" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="45" y="476" w="-1" h="-1" measuredW="103" measuredH="21" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%A9%20Company%202013</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Icon" x="1217" y="367" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>ShiftIcon%7Clarge</icon>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Image" x="148" y="79" w="235" h="235" measuredW="77" measuredH="79" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Title" x="576" y="21" w="-1" h="-1" measuredW="201" measuredH="43" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u0422%u0443%u0440%u0431%u0430%u0437%u0430_0</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::BreadCrumbs" x="398" y="79" w="-1" h="-1" measuredW="284" measuredH="31" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <text>%u0421%u0442%u0440%u0430%u043D%u0430_1%2C%20%u0420%u0435%u0433%u0438%u043E%u043D_2%2C%20%u0413%u043E%u0440%u043E%u0434_3</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="398" y="125" w="804" h="-1" measuredW="324" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <italic>true</italic>
+        <text>%u0421%u0442%u0440%u0430%u043D%u0430_1%2C%20%u0420%u0435%u0433%u0438%u043E%u043D_2%2C%20%u0413%u043E%u0440%u043E%u0434_3%2C%20%u0443%u043B.%20%u0423%u043B%u0438%u0446%u0430_4%2C%20%u0434_5%2C%20%u043A%u0432_6</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Link" x="203" y="329" w="-1" h="-1" measuredW="125" measuredH="19" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>t.turbaza@email.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Label" x="204" y="363" w="-1" h="-1" measuredW="122" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>+7%20%288442%29%2012-23-34</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Paragraph" x="398" y="161" w="804" h="223" measuredW="200" measuredH="80" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Etiam%20molestie%20accumsan%20orci%20sed%20ultricies.%20Maecenas%20sit%20amet%20lobortis%20odio.%20Praesent%20ultrices%20nec%20neque%20ut%20facilisis.%20Suspendisse%20scelerisque%20odio%20non%20faucibus%20molestie.%20Donec%20sed%20leo%20ligula.%20Cras%20mollis%20quam%20viverra%20dui%20vehicula%20venenatis.%20Duis%20congue%20augue%20a%20mi%20mollis%2C%20in%20sagittis%20turpis%20sodales.%20Donec%20scelerisque%20dui%20suscipit%2C%20lacinia%20elit%20quis%2C%20consequat%20nisi.%20Fusce%20eget%20imperdiet%20sapien.%20Cras%20nec%20accumsan%20nulla%2C%20nec%20cursus%20velit.%20Maecenas%20eget%20tellus%20mauris.%20Cras%20condimentum%20mollis%20faucibus.%0A%20%0AMauris%20tempus%20a%20augue%20pharetra%20mattis.%20Fusce%20tincidunt%20fermentum%20augue.%20Cras%20odio%20orci%2C%20auctor%20nec%20scelerisque%20eget%2C%20porttitor%20vitae%20mauris.%20Integer%20hendrerit%20enim%20nisi%2C%20suscipit%20congue%20diam%20convallis%20eget.%20Quisque%20vel%20tortor%20nec%20eros%20venenatis%20porttitor%20a%20eu%20enim.%20Morbi%20dictum%20justo%20nec%20elit%20vulputate%20tincidunt.%20Quisque%20turpis%20ante%2C%20luctus%20at%20congue%20eget%2C%20pulvinar%20non%20velit.%20Vestibulum%20cursus%20ante%20non%20libero%20egestas%2C%20vitae%20convallis%20lacus%20varius.%20Cras%20rutrum%20neque%20ac%20erat%20lacinia%20egestas.%20Donec%20dictum%20eros%20mattis%20tellus%20volutpat%20luctus.%0A%20%0AVestibulum%20nec%20magna%20velit.%20Maecenas%20mi%20nibh%2C%20condimentum%20sed%20nisl%20non%2C%20laoreet%20sodales%20dolor.%20Pellentesque%20metus%20tortor%2C%20varius%20vitae%20urna%20eu%2C%20lobortis%20consectetur%20lacus.%20Integer%20faucibus%20risus%20justo%2C%20quis%20vehicula%20elit%20porta%20rhoncus.%20Integer%20metus%20arcu%2C%20dapibus%20nec%20elit%20nec%2C%20commodo%20condimentum%20mauris.%20Etiam%20sed%20aliquam%20felis.%20Donec%20mollis%20interdum%20vulputate.%20Etiam%20dui%20arcu%2C%20commodo%20quis%20sagittis%20sed%2C%20condimentum%20vitae%20justo.%0A%20%0ASed%20scelerisque%20varius%20scelerisque.%20Aenean%20eu%20auctor%20dui.%20Etiam%20scelerisque%20consectetur%20molestie.%20Sed%20tristique%20suscipit%20libero%2C%20nec%20luctus%20nisi%20lobortis%20ac.%20Maecenas%20et%20tempus%20risus.%20Donec%20sed%20varius%20turpis%2C%20ut%20adipiscing%20turpis.%20Aenean%20quis%20dolor%20ipsum.%20Aenean%20pretium%2C%20sapien%20ac%20molestie%20mattis%2C%20quam%20mauris%20volutpat%20augue%2C%20nec%20fermentum%20nibh%20mi%20non%20dolor.%20Phasellus%20mollis%20nisl%20vitae%20enim%20laoreet%2C%20id%20lacinia%20justo%20rhoncus.%20Sed%20ut%20venenatis%20nisi.%20Vestibulum%20mauris%20lectus%2C%20vehicula%20non%20quam%20vitae%2C%20molestie%20euismod%20nibh.%20Cras%20id%20tempor%20nunc.%20Nunc%20sed%20erat%20eros.%20Sed%20gravida%20arcu%20in%20tortor%20feugiat%2C%20at%20viverra%20ligula%20scelerisque.%20Proin%20accumsan%20sapien%20vel%20lacus%20sagittis%20gravida.%20Nam%20volutpat%20velit%20ac%20sapien%20suscipit%20mollis.%0A%20%0AAliquam%20blandit%20mi%20vitae%20ante%20commodo%20adipiscing.%20Fusce%20ultrices%20purus%20libero%2C%20at%20facilisis%20est%20laoreet%20et.%20Nulla%20fringilla%20ultrices%20pellentesque.%20Sed%20cursus%20nisi%20non%20quam%20ultrices%2C%20sed%20rutrum%20neque%20elementum.%20In%20hac%20habitasse%20platea%20dictumst.%20Integer%20ultricies%20lacus%20sit%20amet%20nulla%20sagittis%20posuere.%20Donec%20blandit%20tincidunt%20enim%20quis%20venenatis.%20Mauris%20bibendum%20quam%20faucibus%20ante%20imperdiet%2C%20et%20dignissim%20tortor%20ultricies.%20Suspendisse%20facilisis%20bibendum%20sapien%20non%20hendrerit.</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Button" x="148" y="415" w="-1" h="-1" measuredW="77" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u0418%u0437%u043C%u0435%u043D%u0438%u0442%u044C</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="240" y="415" w="-1" h="-1" measuredW="72" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%u0423%u0434%u0430%u043B%u0438%u0442%u044C</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
