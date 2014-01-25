@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Мир турабз - главная страница</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/non-responsive.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div id="top"></div>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Мир турбаз</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Главная</a></li>
+                <li><a href="#about">Страны</a></li>
+                <li><a href="#contact">Регионы</a></li>
+                <li><a href="#">Города</a> </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+<div class="container">
+    <div class="page-header">
+        <h1>Мир турбаз</h1>
+    </div>
+
+    <!-- filter -->
+    <p><h4>Фильтр</h4>
+        <button type="button" class="btn btn-default btn-xs" id="filter_hide">Свернуть</button>
+    <button type="button" class="btn btn-default btn-xs" id="filter_show">Развернуть</button></p>
+    <div class="ts-list" id="filter">
+        <form name="ff" id="ff" method="post" action="/search/">
+            <div class="form-group">
+                <label for="country[0]">Страна:</label>
+                <select id="country[0]" class="form-control">
+                    <option></option>
+                    <option>Страна_1</option>
+                    <option>Страна_2</option>
+                </select>
+                <a href="#"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+            <div class="form-group">
+                <label for="region[0]">Регион:</label>
+                <select id="region[0]" class="form-control">
+                    <option></option>
+                    <option>Регион_1</option>
+                    <option>Регион_2</option>
+                </select>
+                <a href="#"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+            <div class="form-group">
+                <label for="city[0]">Город:</label>
+                <select id="city[0]" class="form-control">
+                    <option></option>
+                    <option>Город_1</option>
+                    <option>Город_2</option>
+                </select>
+                <a href="#"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-success">Найти</button>
+                <button type="reset" class="btn btn-default">Сброс</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-12">
+    <!-- Список турбаз -->
+    <button type="button" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-plus"></span> Добавить
+    </button>
+    <div class="ts-list">
+        <!-- Трубаза 1 -->
+        <div class="media ts-list-item">
+            <a class="pull-left" href="#">
+                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Vestibulum augue velit</h4>
+                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
+                <p><label for="email[1]">e-mail:</label><a href="mailto:tbase@email.com" id="email[1]">tbase@email.com</a></p>
+                <p><label for="tel[1]">телефон:</label><span id="tel[1]">+7 (8442) 12-23-34</span></p>
+                <ol class="breadcrumb">
+                    <li><a href="#">Страна_1</a></li>
+                    <li><a href="#">Регион_2</a></li>
+                    <li><a href="#">Город_3</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- Турбаза 2 -->
+        <div class="media ts-list-item">
+            <a class="pull-left" href="#">
+                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Vestibulum augue velit</h4>
+                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
+                <p><label for="email[2]">e-mail:</label><a href="mailto:tbase@email.com" id="email[2]">tbase@email.com</a></p>
+                <p><label for="tel[2]">телефон:</label><span id="tel[2]">+7 (8442) 12-23-34</span></p>
+                <ol class="breadcrumb">
+                    <li><a href="#">Страна_1</a></li>
+                    <li><a href="#">Регион_2</a></li>
+                    <li><a href="#">Город_3</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- Турьаза 3 -->
+        <div class="media ts-list-item">
+            <a class="pull-left" href="#">
+                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Vestibulum augue velit</h4>
+                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
+                <p><label for="email[3]">e-mail:</label><a href="mailto:tbase@email.com" id="email[3]">tbase@email.com</a></p>
+                <p><label for="tel[3]">телефон:</label><span id="tel[3]">+7 (8442) 12-23-34</span></p>
+                <ol class="breadcrumb">
+                    <li><a href="#">Страна_1</a></li>
+                    <li><a href="#">Регион_2</a></li>
+                    <li><a href="#">Город_3</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- Турбаза 4 -->
+        <div class="media ts-list-item">
+            <a class="pull-left" href="#">
+                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Vestibulum augue velit</h4>
+                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
+                <p><label for="email[4]">e-mail:</label><a href="mailto:tbase@email.com" id="email[4]">tbase@email.com</a></p>
+                <p><label for="tel[4]">телефон:</label><span id="tel[4]">+7 (8442) 12-23-34</span></p>
+                <ol class="breadcrumb">
+                    <li><a href="#">Страна_1</a></li>
+                    <li><a href="#">Регион_2</a></li>
+                    <li><a href="#">Город_3</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- Турабаза 5 -->
+        <div class="media ts-list-item">
+            <a class="pull-left" href="#">
+                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">Vestibulum augue velit</h4>
+                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
+                <p><label for="email[5]">e-mail:</label><a href="mailto:tbase@email.com" id="email[5]">tbase@email.com</a></p>
+                <p><label for="tel[5]">телефон:</label><span id="tel[5]">+7 (8442) 12-23-34</span></p>
+                <ol class="breadcrumb">
+                    <li><a href="#">Страна_1</a></li>
+                    <li><a href="#">Регион_2</a></li>
+                    <li><a href="#">Город_3</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="footer">
+        <p>© Company 2013</p>
+    </div>
+
+</div> <!-- /container -->
+
+<!-- go to top -->
+<a href="#" class="go-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./js/jquery.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/scroll.js"></script>
+<script src="./js/filter.js"></script>
+</body>
+</html>
