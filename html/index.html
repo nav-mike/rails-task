@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" ng-app="phonecatApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,7 +61,7 @@
                     <option>Страна_1</option>
                     <option>Страна_2</option>
                 </select>
-                <a href="#"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="#" id="add_country"><span class="glyphicon glyphicon-plus"></span></a>
             </div>
             <div class="form-group">
                 <label for="region[0]">Регион:</label>
@@ -93,123 +93,149 @@
     <button type="button" class="btn btn-default btn-xs">
         <span class="glyphicon glyphicon-plus"></span> Добавить
     </button>
-    <div class="ts-list">
-        <!-- Трубаза 1 -->
-        <div class="media ts-list-item">
-            <a class="pull-left" href="#">
-                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
-            </a>
-            <div class="media-body">
-                <h4 class="media-heading">Vestibulum augue velit</h4>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-pencil"></span> Изменить
-                </button>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-remove"></span> Удалить
-                </button>
-                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
-                <p><label for="email[1]">e-mail:</label><a href="mailto:tbase@email.com" id="email[1]">tbase@email.com</a></p>
-                <p><label for="tel[1]">телефон:</label><span id="tel[1]">+7 (8442) 12-23-34</span></p>
-                <ol class="breadcrumb">
-                    <li><a href="#">Страна_1</a></li>
-                    <li><a href="#">Регион_2</a></li>
-                    <li><a href="#">Город_3</a></li>
-                </ol>
-            </div>
-        </div>
-        <!-- Турбаза 2 -->
-        <div class="media ts-list-item">
-            <a class="pull-left" href="#">
-                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
-            </a>
-            <div class="media-body">
-                <h4 class="media-heading">Vestibulum augue velit</h4>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-pencil"></span> Изменить
-                </button>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-remove"></span> Удалить
-                </button>
-                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
-                <p><label for="email[2]">e-mail:</label><a href="mailto:tbase@email.com" id="email[2]">tbase@email.com</a></p>
-                <p><label for="tel[2]">телефон:</label><span id="tel[2]">+7 (8442) 12-23-34</span></p>
-                <ol class="breadcrumb">
-                    <li><a href="#">Страна_1</a></li>
-                    <li><a href="#">Регион_2</a></li>
-                    <li><a href="#">Город_3</a></li>
-                </ol>
-            </div>
-        </div>
-        <!-- Турьаза 3 -->
-        <div class="media ts-list-item">
-            <a class="pull-left" href="#">
-                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
-            </a>
-            <div class="media-body">
-                <h4 class="media-heading">Vestibulum augue velit</h4>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-pencil"></span> Изменить
-                </button>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-remove"></span> Удалить
-                </button>
-                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
-                <p><label for="email[3]">e-mail:</label><a href="mailto:tbase@email.com" id="email[3]">tbase@email.com</a></p>
-                <p><label for="tel[3]">телефон:</label><span id="tel[3]">+7 (8442) 12-23-34</span></p>
-                <ol class="breadcrumb">
-                    <li><a href="#">Страна_1</a></li>
-                    <li><a href="#">Регион_2</a></li>
-                    <li><a href="#">Город_3</a></li>
-                </ol>
-            </div>
-        </div>
-        <!-- Турбаза 4 -->
-        <div class="media ts-list-item">
-            <a class="pull-left" href="#">
-                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
-            </a>
-            <div class="media-body">
-                <h4 class="media-heading">Vestibulum augue velit</h4>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-pencil"></span> Изменить
-                </button>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-remove"></span> Удалить
-                </button>
-                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
-                <p><label for="email[4]">e-mail:</label><a href="mailto:tbase@email.com" id="email[4]">tbase@email.com</a></p>
-                <p><label for="tel[4]">телефон:</label><span id="tel[4]">+7 (8442) 12-23-34</span></p>
-                <ol class="breadcrumb">
-                    <li><a href="#">Страна_1</a></li>
-                    <li><a href="#">Регион_2</a></li>
-                    <li><a href="#">Город_3</a></li>
-                </ol>
-            </div>
-        </div>
-        <!-- Турабаза 5 -->
-        <div class="media ts-list-item">
-            <a class="pull-left" href="#">
-                <img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">
-            </a>
-            <div class="media-body">
-                <h4 class="media-heading">Vestibulum augue velit</h4>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-pencil"></span> Изменить
-                </button>
-                <button type="button" class="btn btn-default btn-xs">
-                    <span class="glyphicon glyphicon-remove"></span> Удалить
-                </button>
-                <p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>
-                <p><label for="email[5]">e-mail:</label><a href="mailto:tbase@email.com" id="email[5]">tbase@email.com</a></p>
-                <p><label for="tel[5]">телефон:</label><span id="tel[5]">+7 (8442) 12-23-34</span></p>
-                <ol class="breadcrumb">
-                    <li><a href="#">Страна_1</a></li>
-                    <li><a href="#">Регион_2</a></li>
-                    <li><a href="#">Город_3</a></li>
-                </ol>
+    <div ng-controller="TurbazaListCtrl">
+        <div class="ts-list">
+            <div class="media ts-list-item" ng-repeat="item in turbaza_list">
+                <a class="pull-left" href="#">
+                    <img src="{{item.image}}" alt="{{item.image_title}}" class="img-thumbnail" width="157" height="144">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">{{item.name}}</h4>
+                    <button type="button" class="btn btn-default btn-xs">
+                        <span class="glyphicon glyphicon-pencil"></span> Изменить
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs">
+                        <span class="glyphicon glyphicon-remove"></span> Удалить
+                    </button>
+                    <p style="text-align: justify">{{item.description}}</p>
+                    <p><label for="email[{{item.id}}]">e-mail:</label><a href="mailto:{{item.email}}" id="email[{{item.id}}]">{{item.email}}</a></p>
+                    <p><label for="tel[{{item.id}}]">телефон:</label><span id="tel[{{item.id}}]">{{item.phone}}</span></p>
+                    <ol class="breadcrumb">
+                        <li><a href="#">{{item.country}}</a></li>
+                        <li><a href="#">{{item.region}}</a></li>
+                        <li><a href="#">{{item.city}}</a></li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
+    <!--<div class="ts-list">-->
+        <!--&lt;!&ndash; Трубаза 1 &ndash;&gt;-->
+        <!--<div class="media ts-list-item">-->
+            <!--<a class="pull-left" href="#">-->
+                <!--<img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">-->
+            <!--</a>-->
+            <!--<div class="media-body">-->
+                <!--<h4 class="media-heading">Vestibulum augue velit</h4>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-pencil"></span> Изменить-->
+                <!--</button>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-remove"></span> Удалить-->
+                <!--</button>-->
+                <!--<p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>-->
+                <!--<p><label for="email[1]">e-mail:</label><a href="mailto:tbase@email.com" id="email[1]">tbase@email.com</a></p>-->
+                <!--<p><label for="tel[1]">телефон:</label><span id="tel[1]">+7 (8442) 12-23-34</span></p>-->
+                <!--<ol class="breadcrumb">-->
+                    <!--<li><a href="#">Страна_1</a></li>-->
+                    <!--<li><a href="#">Регион_2</a></li>-->
+                    <!--<li><a href="#">Город_3</a></li>-->
+                <!--</ol>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Турбаза 2 &ndash;&gt;-->
+        <!--<div class="media ts-list-item">-->
+            <!--<a class="pull-left" href="#">-->
+                <!--<img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">-->
+            <!--</a>-->
+            <!--<div class="media-body">-->
+                <!--<h4 class="media-heading">Vestibulum augue velit</h4>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-pencil"></span> Изменить-->
+                <!--</button>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-remove"></span> Удалить-->
+                <!--</button>-->
+                <!--<p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>-->
+                <!--<p><label for="email[2]">e-mail:</label><a href="mailto:tbase@email.com" id="email[2]">tbase@email.com</a></p>-->
+                <!--<p><label for="tel[2]">телефон:</label><span id="tel[2]">+7 (8442) 12-23-34</span></p>-->
+                <!--<ol class="breadcrumb">-->
+                    <!--<li><a href="#">Страна_1</a></li>-->
+                    <!--<li><a href="#">Регион_2</a></li>-->
+                    <!--<li><a href="#">Город_3</a></li>-->
+                <!--</ol>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Турьаза 3 &ndash;&gt;-->
+        <!--<div class="media ts-list-item">-->
+            <!--<a class="pull-left" href="#">-->
+                <!--<img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">-->
+            <!--</a>-->
+            <!--<div class="media-body">-->
+                <!--<h4 class="media-heading">Vestibulum augue velit</h4>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-pencil"></span> Изменить-->
+                <!--</button>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-remove"></span> Удалить-->
+                <!--</button>-->
+                <!--<p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>-->
+                <!--<p><label for="email[3]">e-mail:</label><a href="mailto:tbase@email.com" id="email[3]">tbase@email.com</a></p>-->
+                <!--<p><label for="tel[3]">телефон:</label><span id="tel[3]">+7 (8442) 12-23-34</span></p>-->
+                <!--<ol class="breadcrumb">-->
+                    <!--<li><a href="#">Страна_1</a></li>-->
+                    <!--<li><a href="#">Регион_2</a></li>-->
+                    <!--<li><a href="#">Город_3</a></li>-->
+                <!--</ol>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Турбаза 4 &ndash;&gt;-->
+        <!--<div class="media ts-list-item">-->
+            <!--<a class="pull-left" href="#">-->
+                <!--<img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">-->
+            <!--</a>-->
+            <!--<div class="media-body">-->
+                <!--<h4 class="media-heading">Vestibulum augue velit</h4>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-pencil"></span> Изменить-->
+                <!--</button>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-remove"></span> Удалить-->
+                <!--</button>-->
+                <!--<p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>-->
+                <!--<p><label for="email[4]">e-mail:</label><a href="mailto:tbase@email.com" id="email[4]">tbase@email.com</a></p>-->
+                <!--<p><label for="tel[4]">телефон:</label><span id="tel[4]">+7 (8442) 12-23-34</span></p>-->
+                <!--<ol class="breadcrumb">-->
+                    <!--<li><a href="#">Страна_1</a></li>-->
+                    <!--<li><a href="#">Регион_2</a></li>-->
+                    <!--<li><a href="#">Город_3</a></li>-->
+                <!--</ol>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Турабаза 5 &ndash;&gt;-->
+        <!--<div class="media ts-list-item">-->
+            <!--<a class="pull-left" href="#">-->
+                <!--<img src="./images/t1.jpg" alt="Vestibulum augue velit" class="img-thumbnail" width="157" height="144">-->
+            <!--</a>-->
+            <!--<div class="media-body">-->
+                <!--<h4 class="media-heading">Vestibulum augue velit</h4>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-pencil"></span> Изменить-->
+                <!--</button>-->
+                <!--<button type="button" class="btn btn-default btn-xs">-->
+                    <!--<span class="glyphicon glyphicon-remove"></span> Удалить-->
+                <!--</button>-->
+                <!--<p style="text-align: justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat placerat dignissim. Integer sit amet enim sollicitudin, vestibulum magna sit amet, molestie tellus. Vivamus non porttitor orci. Sed aliquet massa arcu, molestie fermentum libero sagittis et. Duis quis pharetra enim. Nulla lacus ligula, varius quis erat vitae, venenatis semper justo. Nam metus metus, pellentesque sed odio at, ornare eleifend tortor. Cras sodales est quis elit ultrices pretium. Cras vestibulum diam ac risus tincidunt blandit. Maecenas cursus et tellus sed laoreet. Vivamus ac nisi a sapien condimentum facilisis. Quisque eget leo ac sem aliquet ultricies. Vestibulum aliquet, velit ac ultricies hendrerit, eros ligula placerat erat, et rhoncus lorem dui vel arcu. Ut pellentesque lectus eu massa aliquet, sed porta purus lobortis.</p>-->
+                <!--<p><label for="email[5]">e-mail:</label><a href="mailto:tbase@email.com" id="email[5]">tbase@email.com</a></p>-->
+                <!--<p><label for="tel[5]">телефон:</label><span id="tel[5]">+7 (8442) 12-23-34</span></p>-->
+                <!--<ol class="breadcrumb">-->
+                    <!--<li><a href="#">Страна_1</a></li>-->
+                    <!--<li><a href="#">Регион_2</a></li>-->
+                    <!--<li><a href="#">Город_3</a></li>-->
+                <!--</ol>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 
 </div>
 
@@ -226,6 +252,7 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="./js/jquery.js"></script>
 <script src="./js/bootstrap.min.js"></script>
+<script src="./js/angular.min.js"></script>
 <script src="./js/scroll.js"></script>
 <script src="./js/filter.js"></script>
 </body>
