@@ -12,13 +12,9 @@ $('#filter_show').click(function(){
     return false;
 });
 
-// Добавление поля ввода страны
-$('#add_country').click(function(){
-    return false;
-});
-
 var phonecatApp = angular.module('phonecatApp', []);
 
+// Инициализация списка турбаз
 phonecatApp.controller('TurbazaListCtrl', function($scope){
     $scope.turbaza_list = [
         {
@@ -70,5 +66,20 @@ phonecatApp.controller('TurbazaListCtrl', function($scope){
             'city': 'Город_3'
         }
     ];
-    //s
+});
+
+// Инициализация полей выбора страны в фильтре
+phonecatApp.controller('CountrySelectCtrl', function($scope){
+    var options = ['', 'Страна_1', 'Страна_2'];
+    $scope.country_combobox = [
+        {'id': '0', 'options': options}
+    ];
+    $scope.country_id = 0;
+
+    // Добавление поля ввода страны в фильтр
+    $scope.add_country = function(){
+        $scope.country_id++;
+        var newItem = {'id': $scope.country_id, 'options': options}
+        $scope.country_combobox.push(newItem);
+    }
 });
