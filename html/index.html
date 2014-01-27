@@ -70,14 +70,13 @@
                 </select>
                 <a href="#" id="add_region" ng-click="add_region()"><span class="glyphicon glyphicon-plus"></span></a>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-controller="CitySelectCtrl">
                 <label for="city[0]">Город:</label>
-                <select id="city[0]" class="form-control">
-                    <option></option>
-                    <option>Город_1</option>
-                    <option>Город_2</option>
+                <select ng-repeat="item in city_combobox" id="city[{{item.id}}]"
+                        name="city_{{item.id}}" class="form-control">
+                    <option ng-repeat="op in item.options" value="{{op}}">{{op}}</option>
                 </select>
-                <a href="#"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="#" id="add_city" ng-click="add_city()"><span class="glyphicon glyphicon-plus"></span></a>
             </div>
             <div class="form-actions">
                 <button class="btn btn-success">Найти</button>

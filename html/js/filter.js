@@ -1,7 +1,7 @@
 'use strict';
 
 // Сворачивание/разворачивание фильтра
-//$('#filter').hide();
+$('#filter').hide();
 $('#filter_hide').click(function(){
     $('#filter').hide('slow');
     return false;
@@ -97,5 +97,21 @@ phonecatApp.controller('RegionSelectCtrl', function($scope){
         $scope.region_id++;
         var newItem = {'id': $scope.region_id, 'options': options};
         $scope.region_combobox.push(newItem);
+    }
+});
+
+// Инициализация полей выбора города в фильтре
+phonecatApp.controller('CitySelectCtrl', function($scope){
+    var options = ['', 'Город_1', 'Город_2'];
+    $scope.city_combobox = [
+        {'id': '0', 'options': options}
+    ];
+    $scope.city_id = 0;
+
+    // Добавление поля ввода города в фильтр
+    $scope.add_city = function() {
+        $scope.city_id++;
+        var newItem = {'id': $scope.city_id, 'options': options};
+        $scope.city_combobox.push(newItem);
     }
 });
