@@ -5,7 +5,7 @@ author: M. Navrotskiy <br />
 email:  m.navrotskiy@gmail.com
 
 <p>
-Ссылка на <a href="http://www.screencast.com/t/SI3sHaMpg7uu">ER-диаграмму</a>
+Ссылка на <a href="http://www.screencast.com/t/DAt0WgtBO0">ER-диаграмму</a>
 </p>
 
 <p>
