@@ -79,7 +79,23 @@ phonecatApp.controller('CountrySelectCtrl', function($scope){
     // Добавление поля ввода страны в фильтр
     $scope.add_country = function(){
         $scope.country_id++;
-        var newItem = {'id': $scope.country_id, 'options': options}
+        var newItem = {'id': $scope.country_id, 'options': options};
         $scope.country_combobox.push(newItem);
+    }
+});
+
+// Инициализация полей выбора региона в фильтре
+phonecatApp.controller('RegionSelectCtrl', function($scope){
+    var options = ['', 'Регион_1', 'Регион_2'];
+    $scope.region_combobox = [
+        {'id': '0', 'options': options}
+    ];
+    $scope.region_id = 0;
+
+    // Добавление поля ввода региона в фильтр
+    $scope.add_region = function() {
+        $scope.region_id++;
+        var newItem = {'id': $scope.region_id, 'options': options};
+        $scope.region_combobox.push(newItem);
     }
 });
