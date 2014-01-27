@@ -1,4 +1,4 @@
-<%= form_for(@country) do |f| %>
+<%= form_for(@country, :role => 'form') do |f| %>
   <% if @country.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@country.errors.count, "error") %> prohibited this country from being saved:</h2>
@@ -11,15 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label 'Название:', :for => :name %>
+    <%= f.text_field :name, :class => 'form_control', :placeholder => 'Название' %>
   </div>
-  <div class="field">
-    <%= f.label :phone_code %><br>
-    <%= f.text_field :phone_code %>
+  <div class="form-group">
+    <%= f.label 'Код страны:', :for => :phone_code %>
+    <%= f.text_field :phone_code, :class => 'form_control', :placeholder => 'Код страны' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <a href="#">Добавить</a>
+  <a href="#">Очистить</a>
 <% end %>

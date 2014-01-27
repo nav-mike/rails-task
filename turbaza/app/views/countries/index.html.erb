@@ -1,29 +1,74 @@
-<h1>Listing countries</h1>
+<div id="top"></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Phone code</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Мир турбаз</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Главная</a></li>
+                <li class="active"><%= link_to 'Страны', countries_path %></li>
+                <li><a href="#contact">Регионы</a></li>
+                <li><a href="#">Города</a> </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
 
-  <tbody>
-    <% @countries.each do |country| %>
-      <tr>
-        <td><%= country.name %></td>
-        <td><%= country.phone_code %></td>
-        <td><%= link_to 'Show', country %></td>
-        <td><%= link_to 'Edit', edit_country_path(country) %></td>
-        <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+    <div class="page-header" style="text-align: center">
+        <h1>Страны</h1>
+    </div>
 
-<br>
+    <div class="row">
+        <div class="col-md-2">
+            <%= render 'form' %>
+        </div>
+        <div class="col-md-10">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Код страны</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @countries.each do |country| %>
+                      <tr>
+                        <td><%= country.name %></td>
+                        <td><%= country.phone_code %></td>
+                        <td><%= link_to 'Edit', edit_country_path(country) %></td>
+                        <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-<%= link_to 'New Country', new_country_path %>
+    <div class="footer">
+        <p>© Company 2013</p>
+    </div>
+
+</div> <!-- /container -->
+
+<!-- go to top -->
+<a href="#" class="go-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./js/jquery.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/angular.min.js"></script>
+<script src="./js/scroll.js"></script>
+<script src="./js/filter.js"></script>
