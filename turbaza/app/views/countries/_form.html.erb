@@ -16,12 +16,12 @@
   <div class="form-group">
     <label for="country_name">Название:</label>
     <input type="text" id="country_name" name="country[name]" class="form-control" 
-        placeholder="Название" required="required">
+        placeholder="Название" required="required" value="<%= @country.name %>">
   </div>
   <div class="form-group">
     <label for="index">Код страны:</label>
     <input type="text" id="country_phone_code" name="country[phone_code]" 
-        class="form-control" placeholder="Код страны" required="required">
+        class="form-control" placeholder="Код страны" required="required" value="<%= @country.phone_code %>">
   </div>
   <button class="btn btn-primary" type="submit">Добавить</button>
   <button class="btn btn-default" type="reset" >Очистить</button>
