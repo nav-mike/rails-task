@@ -1,6 +1,6 @@
-# Таблица регионов
+# Таблица региона
 class Region < ActiveRecord::Base
     
-    has_one :country, dependent: :destroy # Связывание с страной
+    belongs_to :country # Страна в которой регион.
     
 end

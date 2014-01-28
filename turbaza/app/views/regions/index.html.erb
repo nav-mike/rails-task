@@ -1,79 +1,29 @@
-<div id="top"></div>
+<h1>Listing regions</h1>
 
-<!-- Fixed navbar -->
-<!-- Fixed navbar -->
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Мир турбаз</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Главная</a></li>
-                <li><%= link_to 'Страны', countries_path %></li>
-                <li class="active"><%= link_to 'Регионы', regions_path %></li>
-                <li><a href="#">Города</a> </li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<div class="container">
-    <div class="page-header" style="text-align: center">
-        <h1>Регионы</h1>
-    </div>
+  <tbody>
+    <% @regions.each do |region| %>
+      <tr>
+        <td><%= region.name %></td>
+        <td><%= region.country_id %></td>
+        <td><%= link_to 'Show', region %></td>
+        <td><%= link_to 'Edit', edit_region_path(region) %></td>
+        <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-    <div class="row">
-        <div class="col-md-2">
-            <form role="form">
-                <div class="form-group">
-                    <label for="name">Название:</label>
-                    <input type="text" id="name" class="form-control" placeholder="Название">
-                </div>
-                <div class="form-group">
-                    <label for="country">Страна:</label>
-                    <select id="country" class="form-control">
-                        <option>Страна_1</option>
-                        <option>Страна_3</option>
-                    </select>
-                </div>
-                <a href="#">Добавить</a>
-                <a href="#">Очистить</a>
-            </form>
-        </div>
-        <div class="col-md-10">
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>Название</th>
-                    <th>Страна</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <% @regions.each do |region| %>
-                  <tr>
-                    <td><%= region.name %></td>
-                    <td><%= link_to 'Show', region %></td>
-                    <td><%= link_to 'Edit', edit_region_path(region) %></td>
-                    <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-        </div>
+<br>
 
-  <br>
-
- <div class="footer">
-        <p>© Company 2013</p>
-    </div>
-
-</div> <!-- /container -->
+<%= link_to 'New Region', new_region_path %>
