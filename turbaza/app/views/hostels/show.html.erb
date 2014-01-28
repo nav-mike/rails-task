@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hostel.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @hostel.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @hostel.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @hostel.city_id %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @hostel.phone %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @hostel.description %>
+</p>
+
+<p>
+  <strong>Photo string:</strong>
+  <%= @hostel.photo_string %>
+</p>
+
+<%= link_to 'Edit', edit_hostel_path(@hostel) %> |
+<%= link_to 'Back', hostels_path %>

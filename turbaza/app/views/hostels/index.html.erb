@@ -1,0 +1,39 @@
+<h1>Listing hostels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Phone</th>
+      <th>Description</th>
+      <th>Photo string</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hostels.each do |hostel| %>
+      <tr>
+        <td><%= hostel.name %></td>
+        <td><%= hostel.email %></td>
+        <td><%= hostel.address %></td>
+        <td><%= hostel.city_id %></td>
+        <td><%= hostel.phone %></td>
+        <td><%= hostel.description %></td>
+        <td><%= hostel.photo_string %></td>
+        <td><%= link_to 'Show', hostel %></td>
+        <td><%= link_to 'Edit', edit_hostel_path(hostel) %></td>
+        <td><%= link_to 'Destroy', hostel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hostel', new_hostel_path %>
