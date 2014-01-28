@@ -1,3 +1,5 @@
+
+<div>
 <%= form_for(@country, :role => 'form') do |f| %>
   <% if @country.errors.any? %>
     <div id="error_explanation">
@@ -12,13 +14,16 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label 'Название:', :for => :name %>
-    <%= f.text_field :name, :class => 'form_control', :placeholder => 'Название' %>
+    <label for="country_name">Название:</label>
+    <input type="text" id="country_name" name="country[name]" class="form-control" 
+        placeholder="Название" required="required">
   </div>
   <div class="form-group">
-    <%= f.label 'Код страны:', :for => :phone_code %>
-    <%= f.text_field :phone_code, :class => 'form_control', :placeholder => 'Код страны' %>
+    <label for="index">Код страны:</label>
+    <input type="text" id="country_phone_code" name="country[phone_code]" 
+        class="form-control" placeholder="Код страны" required="required">
   </div>
-  <a href="#">Добавить</a>
-  <a href="#">Очистить</a>
+  <button class="btn btn-primary" type="submit">Добавить</button>
+  <button class="btn btn-default" type="reset" >Очистить</button>
 <% end %>
+</div>

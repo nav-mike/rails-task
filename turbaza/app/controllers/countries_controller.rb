@@ -29,10 +29,11 @@ class CountriesController < ApplicationController
 
     respond_to do |format|
       if @country.save
-        format.html { redirect_to @country, notice: 'Country was successfully created.' }
+        format.html { redirect_to index, notice: 'Country was successfully created.' }
         format.json { render action: 'show', status: :created, location: @country }
       else
-        format.html { render action: 'new' }
+        @countries = Country.all  
+        format.html { redirect_to index }
         format.json { render json: @country.errors, status: :unprocessable_entity }
       end
     end
@@ -46,7 +47,7 @@ class CountriesController < ApplicationController
         format.html { redirect_to @country, notice: 'Country was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'edit', notice: @country.errors }
         format.json { render json: @country.errors, status: :unprocessable_entity }
       end
     end

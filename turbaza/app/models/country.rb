@@ -6,6 +6,5 @@ class Country < ActiveRecord::Base
     
     # Проверка уникальности.
     validates :name, uniqueness: true
-    validates :phone_code, uniqueness: true
     
 end
