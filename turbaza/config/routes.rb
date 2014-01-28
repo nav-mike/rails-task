@@ -1,4 +1,6 @@
 Turbaza::Application.routes.draw do
+  resources :cities
+
   resources :regions
 
   resources :countries
