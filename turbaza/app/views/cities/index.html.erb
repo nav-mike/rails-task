@@ -48,11 +48,11 @@
             <% @cities.each do |item| %>
             <tr>
               <td><%= item.name %></td>
-              <td><%= item.region.country %></td>
+              <td><%= item.region.country.name %></td>
               <td><%= item.region.name %></td>
               <td><%= item.phone_code %></td>
-              <td><%= link_to 'Edit', edit_city_path(city) %></td>
-              <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Edit', edit_city_path(item) %></td>
+              <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
         </tbody>

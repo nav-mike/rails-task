@@ -46,9 +46,9 @@
             <% @regions.each do |item| %>
             <tr>
               <td><%= item.name %></td>
-              <td><%= item.country_id %></td>
-              <td><%= link_to 'Edit', edit_region_path(region) %></td>
-              <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= item.country.name %></td>
+              <td><%= link_to 'Edit', edit_region_path(item) %></td>
+              <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
         </tbody>
