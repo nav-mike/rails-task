@@ -30,10 +30,12 @@ class RegionsController < ApplicationController
   # POST /regions.json
   def create
     @region = Region.new(region_params)
+    @countries = Country.all
 
     respond_to do |format|
       if @region.save
-        format.html { redirect_to @region, notice: 'Region was successfully created.' }
+        @regions = Region.all
+        format.html { redirect_to RegionsController:index, notice: 'Region was successfully created.' }
         format.json { render action: 'show', status: :created, location: @region }
       else
         format.html { render action: 'new' }

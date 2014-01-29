@@ -6,5 +6,7 @@ class Country < ActiveRecord::Base
     
     # Проверка уникальности.
     validates :name, uniqueness: true
+
+    has_many :regions, dependent: :destroy
     
 end
