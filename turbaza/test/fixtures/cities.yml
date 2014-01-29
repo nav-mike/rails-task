@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  phone_code: MyString
-  region_id: 1
+  id: 0
+  name: 'Volgograd'
+  phone_code: '8442'
+  region_id: 0
 
 two:
-  name: MyString
-  phone_code: MyString
+  id: 1
+  name: 'Kehnl'
+  phone_code: '453'
   region_id: 1

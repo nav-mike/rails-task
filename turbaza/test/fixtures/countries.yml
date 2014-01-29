@@ -1,9 +1,12 @@
+#encoding: utf-8
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  phone_code: MyString
+  id: 0
+  name: Russia
+  phone_code: '+7'
 
 two:
-  name: MyString
-  phone_code: MyString
+  id: 1
+  name: Germany
+  phone_code: '+49'

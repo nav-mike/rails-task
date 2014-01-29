@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  email: MyString
-  address: MyString
-  city_id: 1
-  phone: MyString
-  description: MyString
-  photo_string: MyString
+  name: 'MyString'
+  email: 'MyString@email.com'
+  address: 'MyString, st.'
+  city_id: 0
+  phone: '12 23 34'
+  description: 'MyString'
+  photo_string: '/avatar.png'
 
 two:
-  name: MyString
-  email: MyString
-  address: MyString
+  name: 'QWE'
+  email: 'QWE@emaul.de'
+  address: 'qe, st.'
   city_id: 1
-  phone: MyString
-  description: MyString
-  photo_string: MyString
+  phone: '123 34 43'
+  description: 'qwe qwe qwe'
+  photo_string: ''

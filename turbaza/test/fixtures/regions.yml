@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  country_id: 1
+  id: 0
+  name: 'Volgograd region'
+  country_id: 0
 
 two:
-  name: MyString
+  id: 1
+  name: 'Varderbruste region'
   country_id: 1
