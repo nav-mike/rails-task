@@ -64,9 +64,9 @@
 
   <div class="col-md-12">
     <!-- Список турбаз -->
-    <button type="button" class="btn btn-default btn-xs">
+    <a type="button" class="btn btn-default btn-xs" href="<%= new_hostel_path %>">
       <span class="glyphicon glyphicon-plus"></span> Добавить
-    </button>
+    </a>
     <div ng-controller="TurbazaListCtrl">
       <div class="ts-list">
         <div class="media ts-list-item" ng-repeat="item in turbaza_list | filter:request">

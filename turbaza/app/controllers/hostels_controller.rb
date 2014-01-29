@@ -5,6 +5,7 @@ class HostelsController < ApplicationController
   # GET /hostels.json
   def index
     @hostels = Hostel.all
+    @test = 'qwe';
   end
 
   # GET /hostels/1
@@ -15,6 +16,11 @@ class HostelsController < ApplicationController
   # GET /hostels/new
   def new
     @hostel = Hostel.new
+    @hostel.photo_string = '/avatar.png'
+
+    @countries = Country.all
+    @regions = Region.all
+    @cities = City.all
   end
 
   # GET /hostels/1/edit

@@ -11,35 +11,92 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <div class="row">
+      <!-- inputs -->
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="inputCountry" class="control-label">Страна*:</label>
+              <select id="inputCountry" class="form-control">
+                <% @countries.each do |item| %>
+                    <option value="<%= item.id %>"><%= item.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="inputRegion" class="control-label">Регион*:</label>
+              <select id="inputRegion" class="form-control">
+                <% @regions.each do |item| %>
+                    <option value="<%= item.id %>"><%= item.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="hostel_city_id" class="control-label">Город*:</label>
+              <select id="hostel_city_id" name="hostel[city_id]" class="form-control">
+                <% @cities.each do |item| %>
+                <option value="<%= item.id %>"><%= item.name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hostel_name" class="control-label">Название*:</label>
+          <input type="text" id="hostel_name" class="form-control"
+                 name="hostel[name]" placeholder="Название турбазы" value="<%= @hostel.name %>">
+        </div>
+        <div class="form-group">
+          <label for="hostel_description" class="control-label">Описание*:</label>
+          <textarea id="hostel_description" name="hostel[description]"class="form-control" rows="7">
+            <%= @hostel.description %>
+          </textarea>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="hostel_phone" class="control-label">Телефон*:</label>
+              <input id="hostel_phone" type="tel" class="form-control"
+                     name="hostel[phone]"
+                  value="
+                    <% unless @hostel.city.nil? %>
+                        <%= @hostel.city.region.country.phone_code + ' (' + @hostel.city.phone_code + ') ' + @hostel.phone %>
+                    <% end %>
+                  "
+                     placeholder="+7 (8442) 12-23-34">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="hostel_email" class="control-label">e-mail*:</label>
+              <input type="email" id="hostel_email" class="form-control"
+                     name="hostel[email]" placeholder="email@email.com" value="<%= @hostel.email %>">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hostel_address" class="control-label">Адрес*:</label>
+          <input id="hostel_address" class="form-control" type="text"
+                 name="hostel[address]" value="<%= @hostel.address %>" placeholder="Адрес турбазы">
+        </div>
+      </div>
+    <!-- avatar -->
+  <div class="col-md-4">
+    <div class="form-group">
+      <img src="<%= @hostel.photo_string %>" width="235" height="235">
+      <input type="file" id="hostel_photo_string" name="hostel[photo_string]"
+             value="<%= @hostel.photo_string %>" class="form-control">
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Сохранить</button>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :city_id %><br>
-    <%= f.number_field :city_id %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :photo_string %><br>
-    <%= f.text_field :photo_string %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
