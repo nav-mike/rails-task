@@ -11,19 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_code %><br>
-    <%= f.text_field :phone_code %>
-  </div>
-  <div class="field">
-    <%= f.label :region_id %><br>
-    <%= f.number_field :region_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <label for="city_name">Название:</label>
+      <input type="text" id="city_name" class="form-control" placeholder="Название"
+             name="city[name]" value="<%= @city.name %>">
+    </div>
+    <div class="form-group">
+      <label for="country">Страна:</label>
+      <select id="country" class="form-control">
+        <% @countries.each do |c| %>
+        <option value="<%= c.id %>"><%= c.name %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="city_region_id">Регион:</label>
+      <select id="city_region_id" class="form-control">
+        <% @regions.each do |r| %>
+        <option value="<%= r.id %>"><%= r.name %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="city_phone_code">Код города:</label>
+      <input type="text" id="city_phone_code" class="form-control" placeholder="Код города"
+             name="city[phone_code]" value="<%= @city.phone_code %>">
+    </div>
+    <button class="btn btn-primary" type="submit">Добавить</button>
+    <button class="btn btn-default" type="reset" >Очистить</button>
+
 <% end %>

@@ -5,6 +5,10 @@ class CitiesController < ApplicationController
   # GET /cities.json
   def index
     @cities = City.all
+    @city = City.new
+
+    @countries = Country.all
+    @regions = Region.all
   end
 
   # GET /cities/1

@@ -30,32 +30,7 @@
 
   <div class="row">
     <div class="col-md-2">
-      <form role="form">
-        <div class="form-group">
-          <label for="name">Название:</label>
-          <input type="text" id="name" class="form-control" placeholder="Название">
-        </div>
-        <div class="form-group">
-          <label for="country">Страна:</label>
-          <select id="country" class="form-control">
-            <option>Страна_1</option>
-            <option>Страна_3</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="region">Регион:</label>
-          <select id="region" class="form-control">
-            <option>Регион_0</option>
-            <option>Регион_1</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="index">Код города:</label>
-          <input type="text" id="index" class="form-control" placeholder="Код города">
-        </div>
-        <a href="#">Добавить</a>
-        <a href="#">Очистить</a>
-      </form>
+      <%= render 'form' %>
     </div>
     <div class="col-md-10">
       <table class="table table-bordered">
@@ -70,22 +45,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <% @cities.each do |item| %>
+            <tr>
+              <td><%= item.name %></td>
+              <td><%= item.region.country %></td>
+              <td><%= item.region.name %></td>
+              <td><%= item.phone_code %></td>
+              <td><%= link_to 'Edit', edit_city_path(city) %></td>
+              <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
         </tbody>
       </table>
     </div>
