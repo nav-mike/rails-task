@@ -11,15 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <label for="region_name">Название:</label>
+    <input type="text" id="region_name" class="form-control" placeholder="Название"
+           name="region[name]" value="<%= @region.name %>">
   </div>
-  <div class="field">
-    <%= f.label :country_id %><br>
-    <%= f.number_field :country_id %>
+  <div class="form-group">
+    <label for="region_country_id">Страна:</label>
+    <select id="region_country_id" class="form-control" name="region[country_id]">
+      <% @countries.each do |item| %>
+      <option value="<%= item.id %>" <% if item.id == @region.country_id %>selected="selected"<% end %>><%= item.name %></option>
+      <% end %>
+    </select>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <button class="btn btn-primary" type="submit">Добавить</button>
+    <button class="btn btn-default" type="reset" >Очистить</button>
   </div>
 <% end %>

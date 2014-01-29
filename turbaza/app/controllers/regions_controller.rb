@@ -5,6 +5,11 @@ class RegionsController < ApplicationController
   # GET /regions.json
   def index
     @regions = Region.all
+    @region = Region.new
+
+    # Получить все страны
+    @countries = Country.all
+
   end
 
   # GET /regions/1
