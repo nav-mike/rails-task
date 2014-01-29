@@ -10,14 +10,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Мир турбаз</a>
+            <a class="navbar-brand" href="<%= root_path %>">Мир турбаз</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Главная</a></li>
+                <li><a href="<%= root_path %>">Главная</a></li>
                 <li class="active"><%= link_to 'Страны', countries_path %></li>
                 <li><%= link_to 'Регионы', regions_path %></li>
-                <li><a href="#">Города</a> </li>
+                <li><a href="<%= cities_path %>">Города</a> </li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
