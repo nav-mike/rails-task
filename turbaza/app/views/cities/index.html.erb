@@ -51,8 +51,8 @@
               <td><%= item.region.country.name %></td>
               <td><%= item.region.name %></td>
               <td><%= item.phone_code %></td>
-              <td><%= link_to 'Edit', edit_city_path(item), :class => 'btn btn-info' %></td>
-              <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' },
+              <td><%= link_to 'Изменить', edit_city_path(item), :class => 'btn btn-info' %></td>
+              <td><%= link_to 'Удалить', item, method: :delete, data: { confirm: 'Are you sure?' },
                               :class => 'btn btn-danger' %></td>
             </tr>
             <% end %>
