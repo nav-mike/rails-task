@@ -10,6 +10,9 @@ class RegionsController < ApplicationController
     # Получить все страны
     @countries = Country.all
 
+    # Это не изменение
+    @is_edit = false
+
   end
 
   # GET /regions/1
@@ -27,6 +30,9 @@ class RegionsController < ApplicationController
 
     # Получить все страны
     @countries = Country.all
+
+    # Это изменение
+    @is_edit = true
 
   end
 

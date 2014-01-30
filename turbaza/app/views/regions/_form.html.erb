@@ -25,7 +25,7 @@
     </select>
   </div>
   <div class="actions">
-    <button class="btn btn-primary" type="submit">Добавить</button>
+    <button class="btn btn-primary" type="submit"><% if @is_edit %>Изменить<% else %>Добавить<% end %></button>
     <button class="btn btn-default" type="reset" >Очистить</button>
   </div>
 <% end %>
