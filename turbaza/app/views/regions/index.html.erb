@@ -17,7 +17,7 @@
         <li><a href="<%= root_path %>">Главная</a></li>
         <li><a href="<%= countries_path %>">Страны</a></li>
         <li class="active"><a href="<%= regions_path %>">Регионы</a></li>
-        <li><a href="<%= cities_path %>">Города</a> </li>
+        <li><%= link_to 'Города', cities_path %></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
