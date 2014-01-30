@@ -8,5 +8,8 @@ class Country < ActiveRecord::Base
     validates :name, uniqueness: true
 
     has_many :regions, dependent: :destroy
+
+    # Список регионов текущей страны
+    attr_accessor :ui_regions
     
 end

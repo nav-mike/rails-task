@@ -1,6 +1,7 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
+
   # GET /cities
   # GET /cities.json
   def index
@@ -9,6 +10,16 @@ class CitiesController < ApplicationController
 
     @countries = Country.all
     @regions = Region.all
+
+    @countries.each do |item|
+      item.ui_regions = Array.new
+      @regions.each do |it|
+        if it.country_id == item.id
+          item.ui_regions.push(it)
+        end
+      end
+    end
+
   end
 
   # GET /cities/1
