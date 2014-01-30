@@ -24,6 +24,10 @@ class RegionsController < ApplicationController
 
   # GET /regions/1/edit
   def edit
+
+    # Получить все страны
+    @countries = Country.all
+
   end
 
   # POST /regions
