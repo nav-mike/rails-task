@@ -6,6 +6,9 @@ class CountriesController < ApplicationController
   def index
     @countries = Country.all
     @country = Country.new
+
+    # Изменение отсутствует
+    @is_edit = false
   end
 
   # GET /countries/1
@@ -20,6 +23,8 @@ class CountriesController < ApplicationController
 
   # GET /countries/1/edit
   def edit
+    # Изменение присутсвует
+    @is_edit = true
   end
 
   # POST /countries

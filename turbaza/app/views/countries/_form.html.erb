@@ -23,7 +23,7 @@
     <input type="text" id="country_phone_code" name="country[phone_code]" 
         class="form-control" placeholder="Код страны" required="required" value="<%= @country.phone_code %>">
   </div>
-  <button class="btn btn-primary" type="submit">Добавить</button>
+  <button class="btn btn-primary" type="submit"><% if @is_edit %>Изменить<% else %>Добавить<% end %></button>
   <button class="btn btn-default" type="reset" >Очистить</button>
 <% end %>
 </div>
