@@ -39,7 +39,7 @@ class RegionsController < ApplicationController
     respond_to do |format|
       if @region.save
         @regions = Region.all
-        format.html { redirect_to RegionsController:index, notice: 'Region was successfully created.' }
+        format.html { redirect_to regions_path, notice: 'Region was successfully created.' }
         format.json { render action: 'show', status: :created, location: @region }
       else
         format.html { render action: 'new' }
@@ -53,7 +53,7 @@ class RegionsController < ApplicationController
   def update
     respond_to do |format|
       if @region.update(region_params)
-        format.html { redirect_to @region, notice: 'Region was successfully updated.' }
+        format.html { redirect_to regions_path, notice: 'Region was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
