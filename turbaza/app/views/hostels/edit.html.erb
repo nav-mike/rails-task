@@ -1,6 +1,43 @@
-<h1>Editing hostel</h1>
+<div id="top"></div>
 
-<%= render 'form' %>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">Мир турбаз</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="<%= root_path %>">Главная</a></li>
+        <li><a href="<%= countries_path %>">Страны</a></li>
+        <li><a href="<%= regions_path %>">Регионы</a></li>
+        <li><a href="<%= cities_path %>">Города</a> </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
 
-<%= link_to 'Show', @hostel %> |
-<%= link_to 'Back', hostels_path %>
+<div class="container">
+  <div class="page-header">
+    <h1>Изменить турбазу "<%= @hostel.name %>"</h1>
+  </div>
+
+  <%= render 'form' %>
+
+  <form class="form-horizontal" role="form">
+  </form>
+
+  <div class="footer">
+    <p>© Company 2013</p>
+  </div>
+
+</div> <!-- /container -->
+
+<!-- go to top -->
+<a href="#" class="go-top"><span class="glyphicon glyphicon-chevron-up"></span></a>

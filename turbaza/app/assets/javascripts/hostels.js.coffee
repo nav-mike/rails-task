@@ -68,7 +68,6 @@ $(document).ready ->
 
   # Установка текущего значения города
   h_region_select = $('#inputRegion').val()
-  console.log h_region_select
   new_cities = get_cities h_region_select
   $.each new_cities, (it, item) ->
     $('#hostel_city_id').append($('<option></option>').attr('value', item.id).text(item.name))
@@ -87,4 +86,24 @@ $(document).ready ->
   # Изменение значения города
   $('#hostel_city_id').on 'change', (e) ->
     city = this.value
+    get_city_code(city)
+
+
+  # При изменении записи
+  if is_edit
+    $('#inputCountry').val(country_value)
+    new_regions = get_regions $('#inputCountry').val()
+    get_country_code $('#inputCountry').val()
+    $('#inputRegion').find('option').remove().end()
+    $('#hostel_city_id').find('option').remove().end()
+    $.each new_regions, (it, item) ->
+      $('#inputRegion').append($('<option></option>').attr('value', item.id).text(item.name))
+    $('#inputRegion').val(region_value)
+    h_region_select = $('#inputRegion').val()
+    new_cities = get_cities h_region_select
+    console.log new_cities
+    $.each new_cities, (it, item) ->
+      $('#hostel_city_id').append($('<option></option>').attr('value', item.id).text(item.name))
+    $('#hostel_city_id').val(city_value)
+    city = $('#hostel_city_id').val()
     get_city_code(city)
