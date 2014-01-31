@@ -11,6 +11,10 @@ class CountriesController < ApplicationController
     @is_edit = false
   end
 
+  def get_all_c
+
+  end
+
   # GET /countries/1
   # GET /countries/1.json
   def show

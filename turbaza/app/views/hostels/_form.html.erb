@@ -1,4 +1,36 @@
-<%= form_for(@hostel) do |f| %>
+<%# Скрипт управления выводом регионов и городов в зависимости от выбранных страны и региона соответственно %>
+<script>
+
+  // Список стран
+  var countries = [
+      <% @countries.each do |item| %>
+      {'id': '<%= item.id %>', 'name': '<%= item.name %>', 'code': '<%= item.phone_code %>', 'regions': [
+          <% item.ui_regions.each do |it| %>
+          {'name': '<%= it.name %>', 'id': '<%= it.id %>'},
+          <% end %>
+      ] },
+      <% end %>
+  ];
+
+  // Список регионов
+  var regions = [
+      <% @regions.each do |item| %>
+      {'id': '<%= item.id %>', 'name': '<%= item.name %>', 'country_id': '<%= item.country_id %>', 'cities': [
+          <% item.ui_cities.each do |it| %>
+          {'name': '<%= it.name %>', 'id': '<%= it.id %>'},
+          <% end %>
+      ]},
+      <% end %>
+  ];
+  // Список городов
+  var cities = [
+          <% @cities.each do |item| %>
+      {'id': '<%= item.id %>', 'name': '<%= item.name %>', 'code': '<%= item.phone_code %>' },
+          <% end %>
+  ];
+</script>
+
+<%= form_for(@hostel, :html => {'ng-app' => 'create_hostel'}) do |f| %>
   <% if @hostel.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hostel.errors.count, "error") %> prohibited this hostel from being saved:</h2>
@@ -11,37 +43,31 @@
     </div>
   <% end %>
 
-    <div class="row">
+    <div class="row" ng-controller="create_init_ctrl">
       <!-- inputs -->
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label for="inputCountry" class="control-label">Страна*:</label>
-              <select id="inputCountry" class="form-control">
-                <% @countries.each do |item| %>
-                    <option value="<%= item.id %>"><%= item.name %></option>
-                <% end %>
+              <select id="inputCountry" class="form-control" ng-model="select_country" ng-change="change_country()">
+                <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
               </select>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="inputRegion" class="control-label">Регион*:</label>
-              <select id="inputRegion" class="form-control">
-                <% @regions.each do |item| %>
-                    <option value="<%= item.id %>"><%= item.name %></option>
-                <% end %>
+              <select id="inputRegion" class="form-control" ng-change="change_region()"
+                      ng-model="regions" ng-options="obj.id as obj.name for obj in region_options">
               </select>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="hostel_city_id" class="control-label">Город*:</label>
-              <select id="hostel_city_id" name="hostel[city_id]" class="form-control">
-                <% @cities.each do |item| %>
-                <option value="<%= item.id %>"><%= item.name %></option>
-                <% end %>
+              <select id="hostel_city_id" name="hostel[city_id]" class="form-control" ng-change="change_city()"
+                      ng-model="cities" ng-options="item.id as item.name for item in cities_options">
               </select>
             </div>
           </div>
@@ -62,13 +88,7 @@
             <div class="form-group">
               <label for="hostel_phone" class="control-label">Телефон*:</label>
               <input id="hostel_phone" type="tel" class="form-control"
-                     name="hostel[phone]"
-                  value="
-                    <% unless @hostel.city.nil? %>
-                        <%= @hostel.city.region.country.phone_code + ' (' + @hostel.city.phone_code + ') ' + @hostel.phone %>
-                    <% end %>
-                  "
-                     placeholder="+7 (8442) 12-23-34">
+                     name="hostel[phone]" placeholder="+7 (8442) 12-23-34" ng-model="phone">
             </div>
           </div>
           <div class="col-md-6">

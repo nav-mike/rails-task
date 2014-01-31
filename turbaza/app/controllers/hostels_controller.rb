@@ -21,6 +21,28 @@ class HostelsController < ApplicationController
     @countries = Country.all
     @regions = Region.all
     @cities = City.all
+
+    @countries = Country.all
+    @regions = Region.all
+
+    @countries.each do |item|
+      item.ui_regions = Array.new
+      @regions.each do |it|
+        if it.country_id == item.id
+          item.ui_regions.push(it)
+        end
+      end
+    end
+
+    @regions.each do |it|
+      it.ui_cities = Array.new
+      @cities.each do |i|
+        if i.region_id == it.id
+          it.ui_cities.push(i)
+        end
+      end
+    end
+
   end
 
   # GET /hostels/1/edit
