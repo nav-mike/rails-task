@@ -69,18 +69,19 @@
     </a>
     <div ng-controller="TurbazaListCtrl">
       <div class="ts-list">
-        <div class="media ts-list-item" ng-repeat="item in turbaza_list | filter:request">
+        <% @hostels.each do |item| %>
+        <div class="media ts-list-item">
           <a class="pull-left" href="#">
-            <img src="{{item.image}}" alt="{{item.image_title}}" class="img-thumbnail" width="157" height="144">
+            <img src="<%= item.photo_string %>" alt="<%= item.name %>" class="img-thumbnail" width="157" height="144">
           </a>
           <div class="media-body">
-            <h4 class="media-heading">{{item.name}}</h4>
-            <button type="button" class="btn btn-default btn-xs">
+            <h4 class="media-heading"><%= item.name %></h4>
+            <a type="button" class="btn btn-default btn-xs">
               <span class="glyphicon glyphicon-pencil"></span> Изменить
-            </button>
-            <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#remove_{{item.id}}">
+            </a>
+            <a type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#remove_{{item.id}}">
               <span class="glyphicon glyphicon-remove"></span> Удалить
-            </button>
+            </a>
             <!-- Modal -->
             <div class="modal fade" id="remove_{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -99,16 +100,19 @@
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
-            <p style="text-align: justify">{{item.description}}</p>
-            <p><label for="email[{{item.id}}]">e-mail:</label><a href="mailto:{{item.email}}" id="email[{{item.id}}]">{{item.email}}</a></p>
-            <p><label for="tel[{{item.id}}]">телефон:</label><span id="tel[{{item.id}}]">{{item.phone}}</span></p>
+            <p style="text-align: justify"><%= item.description %></p>
+            <p><label for="email[{{item.id}}]">e-mail:</label><a href="mailto:<%= item.email %>" id="email[{{item.id}}]"><%= item.email %></a></p>
+            <p><label for="tel[{{item.id}}]">телефон:</label><span id="tel[{{item.id}}]">
+              <%= item.city.region.country.phone_code + ' (' + item.city.phone_code + ') ' + item.phone %>
+            </span></p>
             <ol class="breadcrumb">
-              <li><a href="#">{{item.country}}</a></li>
-              <li><a href="#">{{item.region}}</a></li>
-              <li><a href="#">{{item.city}}</a></li>
+              <li><a href="<%= edit_country_path item.city.region.country %>"><%= item.city.region.country.name %></a></li>
+              <li><a href="<%= edit_region_path item.city.region %>"><%= item.city.region.name %></a></li>
+              <li><a href="<%= edit_city_path item.city %>"><%= item.city.name %></a></li>
             </ol>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
 

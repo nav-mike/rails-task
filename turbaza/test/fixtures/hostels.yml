@@ -6,14 +6,14 @@ one:
   address: 'MyString, st.'
   city_id: 0
   phone: '12 23 34'
-  description: 'MyString'
+  description: 'Maecenas at nisi elementum, fringilla orci eu, consectetur risus. Nulla tristique molestie luctus. Suspendisse vitae eros vel sapien condimentum porttitor a molestie dolor. Morbi semper, diam eu imperdiet scelerisque, metus nulla ultricies purus, ut ultricies augue tellus sit amet elit. Maecenas pretium porttitor egestas. Nullam ut quam vitae mauris egestas gravida. Etiam iaculis libero quis dui malesuada dictum. Vestibulum eu mi volutpat, feugiat mauris sit amet, convallis nisi. Quisque ante lectus, scelerisque a dolor convallis, volutpat interdum libero. Pellentesque velit purus, mollis molestie mauris vitae, auctor lacinia mi. Nulla dignissim turpis id nulla hendrerit, sed tempor nunc consectetur. Nunc velit enim, elementum sit amet augue ac, consequat facilisis tortor'
   photo_string: '/avatar.png'
 
 two:
-  name: 'QWE'
+  name: 'Турбаза "QWE"'
   email: 'QWE@emaul.de'
   address: 'qe, st.'
   city_id: 1
   phone: '123 34 43'
-  description: 'qwe qwe qwe'
-  photo_string: ''
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu nulla ornare, suscipit elit non, malesuada tortor. Duis mauris odio, convallis nec ullamcorper sit amet, egestas non libero. Cras nulla libero, ultricies a dolor vitae, sagittis imperdiet eros. In dictum semper egestas. Nunc consequat hendrerit velit sit amet tincidunt. Maecenas quis lectus libero. Quisque fringilla, sapien eget mattis aliquet, nisi dui scelerisque massa, eget imperdiet sapien orci vitae lorem. Nam ac convallis arcu. Aenean dignissim risus in neque bibendum vehicula. Sed et pharetra quam. Proin eu lectus vel mi rutrum gravida. Duis nec quam ut est euismod tincidunt id at enim. Phasellus augue eros, aliquam et urna id, ultrices mollis urna.'
+  photo_string: '/t1.jpg'
