@@ -30,7 +30,7 @@
   ];
 </script>
 
-<%= form_for(@hostel, :html => {'ng-app' => 'create_hostel'}) do |f| %>
+<%= form_for(@hostel) do |f| %>
   <% if @hostel.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@hostel.errors.count, "error") %> prohibited this hostel from being saved:</h2>
@@ -43,31 +43,28 @@
     </div>
   <% end %>
 
-    <div class="row" ng-controller="create_init_ctrl">
+    <div class="row">
       <!-- inputs -->
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label for="inputCountry" class="control-label">Страна*:</label>
-              <select id="inputCountry" class="form-control" ng-model="select_country" ng-change="change_country()">
-                <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
+              <select id="inputCountry" class="form-control">
               </select>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="inputRegion" class="control-label">Регион*:</label>
-              <select id="inputRegion" class="form-control" ng-change="change_region()"
-                      ng-model="regions" ng-options="obj.id as obj.name for obj in region_options">
+              <select id="inputRegion" class="form-control">
               </select>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
               <label for="hostel_city_id" class="control-label">Город*:</label>
-              <select id="hostel_city_id" name="hostel[city_id]" class="form-control" ng-change="change_city()"
-                      ng-model="cities" ng-options="item.id as item.name for item in cities_options">
+              <select id="hostel_city_id" name="hostel[city_id]" class="form-control">
               </select>
             </div>
           </div>
@@ -87,8 +84,8 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="hostel_phone" class="control-label">Телефон*:</label>
-              <input id="hostel_phone" type="tel" class="form-control"
-                     name="hostel[phone]" placeholder="+7 (8442) 12-23-34" ng-model="phone">
+              <span id="c_code"></span><span id="ct_code"></span><input id="hostel_phone" type="tel" class="form-control"
+                     name="hostel[phone]" placeholder="12-23-34" ng-model="phone">
             </div>
           </div>
           <div class="col-md-6">

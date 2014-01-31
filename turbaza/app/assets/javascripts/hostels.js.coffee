@@ -2,27 +2,89 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-# Модуль создания турбазы
-create_hostel = angular.module 'create_hostel', []
+$(document).ready ->
+  # Формирование списка стран
+  $.each countries, (key, value) ->
+    $('#inputCountry').append($('<option></option>').attr('value', value.id).text(value.name))
 
-# Инициализация приложения
-create_hostel.controller 'create_init_ctrl', ($scope) ->
-  $scope.phone = '';
-  $scope.countries = countries
-  $scope.region_options = []
-  $scope.cities_options = []
-  # Обработка смены страны
-  $scope.change_country = () ->
-    for item in $scope.countries
-      if item.id is $scope.select_country
-        $scope.region_options = item.regions
-        $scope.phone = item.code
-        $scope.cities_options = []
-  # Обработка смены региона
-  $scope.change_region = () ->
-    $scope.cities_options = item.cities for item in regions when item.id is $scope.regions and item.country_id is $scope.select_country
-  # Обработка смены города
-  $scope.change_city = () ->
-    country_code = $scope.phone
-    city_code = item.code for item in cities when item.id is $scope.cities
-    $scope.phone = country_code + ' (' + city_code + ') '
+  # Значение телефона
+  code = ''
+
+  # Получение кода телефона страны
+  get_country_code = (country_id) ->
+    $.each countries, (index, value) ->
+        if value.id is country_id
+          code = value.code
+          $('#c_code').text(code)
+    code
+
+  # Получение кода телефона города
+  get_city_code = (city_id) ->
+    $.each cities, (key, value) ->
+      if value.id is city_id
+        code = ' (' + value.code + ') '
+        $('#ct_code').text(code)
+
+  # Функция получения списка регионов
+  get_regions = (country_id) ->
+    result = []
+    $.each countries, (index, value) ->
+      if value.id is country_id
+        result = value.regions
+    result
+
+  # Функция получения списка городов
+  get_cities = (region_id) ->
+    result = []
+    $.each regions, (index, value) ->
+      if value.id is region_id
+        result = value.cities
+    result
+
+  # Изменение текущей страны
+  $('#inputCountry').on 'change', (e) ->
+    get_country_code this.value
+    regs = get_regions this.value
+    $('#inputRegion').find('option').remove().end()
+    $('#hostel_city_id').find('option').remove().end()
+    $.each regs, (it, item) ->
+      $('#inputRegion').append($('<option></option>').attr('value', item.id).text(item.name))
+
+    h_region_select = $('#inputRegion').val()
+    new_cities = get_cities h_region_select
+    $.each new_cities, (it, item) ->
+      $('#hostel_city_id').append($('<option></option>').attr('value', item.id).text(item.name))
+    get_city_code( $('#hostel_city_id').val())
+
+  # Установка текущего значения
+  h_country_select = $('#inputCountry').val()
+  get_country_code h_country_select
+
+  # Установка текущего значения региона
+  h_country_select = $('#inputCountry').val()
+  new_regions = get_regions h_country_select
+  $.each new_regions, (it, item) ->
+    $('#inputRegion').append($('<option></option>').attr('value', item.id).text(item.name))
+
+  # Установка текущего значения города
+  h_region_select = $('#inputRegion').val()
+  console.log h_region_select
+  new_cities = get_cities h_region_select
+  $.each new_cities, (it, item) ->
+    $('#hostel_city_id').append($('<option></option>').attr('value', item.id).text(item.name))
+
+  # Изменение списка городов
+  $('#inputRegion').on 'change', (e) ->
+    cs = get_cities this.value
+    $('#hostel_city_id').find('option').remove().end()
+    $.each cs, (it, item) ->
+      $('#hostel_city_id').append($('<option></option>').attr('value', item.id).text(item.name))
+
+  # Установка значения телефона
+  city = $('#hostel_city_id').val()
+  get_city_code(city)
+
+  # Изменение значения города
+  $('#hostel_city_id').on 'change', (e) ->
+    city = this.value
+    get_city_code(city)

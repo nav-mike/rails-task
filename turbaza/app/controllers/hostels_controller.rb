@@ -56,10 +56,10 @@ class HostelsController < ApplicationController
 
     respond_to do |format|
       if @hostel.save
-        format.html { redirect_to @hostel, notice: 'Hostel was successfully created.' }
+        format.html { redirect_to hostels_path, notice: 'Hostel was successfully created.' }
         format.json { render action: 'show', status: :created, location: @hostel }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to hostels_path }
         format.json { render json: @hostel.errors, status: :unprocessable_entity }
       end
     end
@@ -70,10 +70,10 @@ class HostelsController < ApplicationController
   def update
     respond_to do |format|
       if @hostel.update(hostel_params)
-        format.html { redirect_to @hostel, notice: 'Hostel was successfully updated.' }
+        format.html { redirect_to hostels_path, notice: 'Hostel was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to hostels_path }
         format.json { render json: @hostel.errors, status: :unprocessable_entity }
       end
     end

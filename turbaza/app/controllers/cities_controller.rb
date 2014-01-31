@@ -73,7 +73,6 @@ class CitiesController < ApplicationController
   # PATCH/PUT /cities/1.json
   def update
     respond_to do |format|
-      File.open('t.txt', 'w') { |file| file.write(city_params) }
       if @city.update(city_params)
         format.html { redirect_to cities_path, notice: 'City was successfully updated.' }
         format.json { head :no_content }

@@ -23,5 +23,6 @@ $.each new_regions, (it, item) ->
 # Изменение списка регионов
 $('#country').on 'change', (e) ->
   regs = get_regions this.value
+  $('#city_region_id').find('option').remove().end()
   $.each regs, (it, item) ->
-    $('#city_region_id').find('option').remove().end().append($('<option></option>').attr('value', item.id).text(item.name))
+    $('#city_region_id').append($('<option></option>').attr('value', item.id).text(item.name))
