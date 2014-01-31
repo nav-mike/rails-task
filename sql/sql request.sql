@@ -19,3 +19,6 @@ FROM
 INNER JOIN hostels ON hostels.city_id = cities.id AND cities.region_id = regions.id
 GROUP BY
 	regions.id
+	
+	
+/* Запрос на получение количества трубаз в каждой стране. */
