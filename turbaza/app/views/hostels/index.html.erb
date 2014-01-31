@@ -76,26 +76,26 @@
           </a>
           <div class="media-body">
             <h4 class="media-heading"><%= item.name %></h4>
-            <a type="button" class="btn btn-default btn-xs">
+            <a type="button" class="btn btn-default btn-xs" href="<%= edit_hostel_path item %>">
               <span class="glyphicon glyphicon-pencil"></span> Изменить
             </a>
-            <a type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#remove_{{item.id}}">
+            <a type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#remove_<%=item.id%>">
               <span class="glyphicon glyphicon-remove"></span> Удалить
             </a>
             <!-- Modal -->
-            <div class="modal fade" id="remove_{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="remove_<%=item.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Удаление {{item.name}}</h4>
+                    <h4 class="modal-title" id="myModalLabel">Удаление <%=item.name%></h4>
                   </div>
                   <div class="modal-body">
-                    Вы действительно хотите удалить турбазу "{{item.country}}-{{item.region}}-{{item.city}}-{{item.name}}"?
+                    Вы действительно хотите удалить турбазу "<%=item.name%>"?
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Нет</button>
-                    <button type="button" class="btn btn-primary">Да</button>
+                    <%= link_to 'Да', item, method: :delete, :class => 'btn btn-primary' %>
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
