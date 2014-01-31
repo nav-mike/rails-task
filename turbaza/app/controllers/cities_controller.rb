@@ -20,6 +20,8 @@ class CitiesController < ApplicationController
       end
     end
 
+    @is_edit = false
+
   end
 
   # GET /cities/1
@@ -30,10 +32,25 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
     @city = City.new
+
+    @is_edit = false
   end
 
   # GET /cities/1/edit
   def edit
+    @countries = Country.all
+    @regions = Region.all
+
+    @countries.each do |item|
+      item.ui_regions = Array.new
+      @regions.each do |it|
+        if it.country_id == item.id
+          item.ui_regions.push(it)
+        end
+      end
+    end
+
+    @is_edit = true
   end
 
   # POST /cities
@@ -56,11 +73,12 @@ class CitiesController < ApplicationController
   # PATCH/PUT /cities/1.json
   def update
     respond_to do |format|
+      File.open('t.txt', 'w') { |file| file.write(city_params) }
       if @city.update(city_params)
-        format.html { redirect_to @city, notice: 'City was successfully updated.' }
+        format.html { redirect_to cities_path, notice: 'City was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { redirect_to cities_path }
         format.json { render json: @city.errors, status: :unprocessable_entity }
       end
     end

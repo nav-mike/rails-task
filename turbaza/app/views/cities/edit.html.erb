@@ -1,6 +1,40 @@
-<h1>Editing city</h1>
+<div class="container">
+  <div class="page-header" style="text-align: center">
+    <h1>Изменение города "<%= @city.name %>"</h1>
+  </div>
 
-<%= render 'form' %>
+  <div id="top"></div>
 
-<%= link_to 'Show', @city %> |
-<%= link_to 'Back', cities_path %>
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= root_path %>">Мир турбаз</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="<%= root_path %>">Главная</a></li>
+          <li><%= link_to 'Страны', countries_path %></li>
+          <li><%= link_to 'Регионы', regions_path %></li>
+          <li class="active"><a href="<%= cities_path %>">Города</a> </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-3">
+        <%= render 'form' %>
+    </div>
+</div>
+<div class="footer">
+  <p>© Company 2013</p>
+</div>
+
+</div> <!-- /container -->

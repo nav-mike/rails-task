@@ -38,7 +38,7 @@ class CountriesController < ApplicationController
 
     respond_to do |format|
       if @country.save
-        format.html { redirect_to index, notice: 'Country was successfully created.' }
+        format.html { redirect_to countries_path, notice: 'Country was successfully created.' }
         format.json { render action: 'show', status: :created, location: @country }
       else
         @countries = Country.all  

@@ -2,35 +2,33 @@
 <%# Скрипт управления выводом регионов в зависимости от выбранной страны %>
 <script>
 
-  // Модуль создания города
-  var createCityApp = angular.module('createCityApp', []);
-
-  // Инициализация выпадающих списков
-  createCityApp.controller('CountryInit', function($scope){
-      $scope.countries = [
+// Список стран
+      var countries = [
           <% @countries.each do |item| %>
-          {'id': '<%= item.id %>', 'name': '<%= item.name %>', 'regions': [
-                  <% item.ui_regions.each do |it| %>
+          {'id': '<%= item.id %>', 'name': '<%= item.name %>', 'code': '<%= item.phone_code %>', 'regions': [
+              <% item.ui_regions.each do |it| %>
               {'name': '<%= it.name %>', 'id': '<%= it.id %>'},
-                  <% end %>
+              <% end %>
           ] },
           <% end %>
       ];
 
-      $scope.region_options = [];
-
-      $scope.change_country = function() {
-          for (var i = 0; i < $scope.countries.length; i++) {
-              if ($scope.countries[i].id == $scope.select_country) {
-                  $scope.region_options = $scope.countries[i].regions;
-                  break;
-              }
-          }
-      }
-  });
+       var options = [<% @countries.each do |item| %>
+           {'id': '<%= item.id %>', 'name': '<%= item.name %>'},
+           <% end %>];
+var regions = [
+        <% @regions.each do |item| %>
+    {'id': '<%= item.id %>', 'name': '<%= item.name %>', 'country_id': '<%= item.country_id %>' },
+        <% end %>
+];
+      var select_country = {};
+      <% if @is_edit %>
+        select_country = {'id': '<%= @city.region.country_id %>', 'name': '<%= @city.region.country.name %>'};
+      <% end %>
+        var is_edit = <%= @is_edit %>;
 </script>
 
-<%= form_for(@city, :html => {'ng-app' => 'createCityApp'}) do |f| %>
+<%= form_for(@city) do |f| %>
   <% if @city.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@city.errors.count, "error") %> prohibited this city from being saved:</h2>
@@ -42,7 +40,7 @@
       </ul>
     </div>
   <% end %>
-<span ng-controller="CountryInit">
+<span>
     <div class="form-group">
       <label for="city_name">Название:</label>
       <input type="text" id="city_name" class="form-control" placeholder="Название"
@@ -50,14 +48,12 @@
     </div>
     <div class="form-group">
       <label for="country">Страна:</label>
-      <select id="country" class="form-control" ng-model="select_country" ng-change="change_country()">
-        <option ng-repeat="country in countries" value="{{country.id}}">{{country.name}}</option>
+      <select id="country" class="form-control">
       </select>
     </div>
     <div class="form-group">
       <label for="city_region_id">Регион:</label>
-      <select id="city_region_id" name="city[region_id]" class="form-control"
-              ng-model="regions" ng-options="obj.id as obj.name for obj in region_options">
+      <select id="city_region_id" name="city[region_id]" class="form-control">
       </select>
     </div>
     <div class="form-group">
@@ -65,7 +61,7 @@
       <input type="text" id="city_phone_code" class="form-control" placeholder="Код города"
              name="city[phone_code]" value="<%= @city.phone_code %>">
     </div>
-    <button class="btn btn-primary" type="submit">Добавить</button>
+    <button class="btn btn-primary" type="submit"><% if @is_edit %>Изменить<% else %>Добавить<% end %></button>
     <button class="btn btn-default" type="reset" >Очистить</button>
 </span>
 <% end %>
