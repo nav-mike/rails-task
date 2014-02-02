@@ -42,7 +42,7 @@ class CountriesController < ApplicationController
         format.json { render action: 'show', status: :created, location: @country }
       else
         @countries = Country.all  
-        format.html { redirect_to index }
+        format.html { redirect_to countries_path }
         format.json { render json: @country.errors, status: :unprocessable_entity }
       end
     end
@@ -53,10 +53,10 @@ class CountriesController < ApplicationController
   def update
     respond_to do |format|
       if @country.update(country_params)
-        format.html { redirect_to index, notice: 'Country was successfully updated.' }
+        format.html { redirect_to countries_path, notice: 'Country was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit', notice: @country.errors }
+        format.html { redirect_to countries_path, notice: @country.errors }
         format.json { render json: @country.errors, status: :unprocessable_entity }
       end
     end
