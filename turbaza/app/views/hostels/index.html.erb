@@ -1,3 +1,60 @@
+<%# Код для реализации фильтра %>
+<script>
+
+    options = [];
+    is_edit = false;
+    // Список стран
+    var countries = [
+        <% @countries.each do |item| %>
+        {'value': '<%= item.id %>', 'text': '<%= item.name %>', 'code': '<%= item.phone_code %>', 'regions': [
+            <% item.ui_regions.each do |it| %>
+            {'name': '<%= it.name %>', 'id': '<%= it.id %>'},
+            <% end %>
+        ] },
+        <% end %>
+    ];
+
+    // Список регионов
+    var regions = [
+        <% @regions.each do |item| %>
+        {'id': '<%= item.id %>', 'name': '<%= item.name %>', 'country_id': '<%= item.country_id %>', 'cities': [
+            <% item.ui_cities.each do |it| %>
+            {'name': '<%= it.name %>', 'id': '<%= it.id %>'},
+            <% end %>
+        ]},
+        <% end %>
+    ];
+    // Список городов
+    var cities = [
+        <% @cities.each do |item| %>
+        {'id': '<%= item.id %>', 'name': '<%= item.name %>', 'code': '<%= item.phone_code %>' },
+        <% end %>
+    ];
+
+    // Список турбаз
+    var hostels_list = [
+        <% @hostels.each do |item| %>
+        {
+            'id': '<%= item.id %>',
+            'image': '<%= item.photo_string %>',
+            'image_title': '<%= item.name %>',
+            'name': '<%= %Q(#{item.name}) %>',
+            'description': '<%= (item.description).strip %>',
+            'email': '<%= item.email %>',
+            'phone': '<%= item.city.region.country.phone_code + ' (' + item.city.phone_code + ') ' + item.phone %>',
+            'country': '<%= item.city.region.country.name %>',
+            'region': '<%= item.city.region.name %>',
+            'city': '<%= item.city.name %>',
+            'edit_path': '<%= edit_hostel_path item %>',
+            'delete_btn': '<%= link_to 'Да', item, method: :delete, :class => 'btn btn-primary' %>',
+            'edit_country': '<%= edit_country_path item.city.region.country %>',
+            'edit_region': '<%= edit_region_path item.city.region %>',
+            'edit_city': '<%= edit_city_path item.city %>'
+        },
+        <% end %>
+    ];
+</script>
+<span ng-app="hostels_filter_app" ng-controller="init_filter_app_ctrl">
 <div id="top"></div>
 
 <!-- Fixed navbar -->
@@ -35,30 +92,25 @@
   <button type="button" class="btn btn-default btn-xs" id="filter_show">Развернуть</button></p>
   <div class="ts-list" id="filter">
     <form name="ff" id="ff">
-      <div class="form-group" ng-controller="CountrySelectCtrl">
-        <label for="country[0]">Страна:</label>
-        <select ng-repeat="item in country_combobox" id="country[{{item.id}}]"
-                name="country[{{item.id}}]" class="form-control" ng-model="c">
-          <option ng-repeat="op in item.options" value="{{op}}">{{op}}</option>
+      <div class="form-group">
+        <label for="country_filter">Страна:</label>
+          <select ng-model="filter_var.country" ng-options="obj.value as obj.text for obj in countries"
+                  name="country[0]" class="form-control" id="country_filter" ng-change="change_country()"></select>
         </select>
       </div>
-      <div class="form-group" ng-controller="RegionSelectCtrl">
-        <label for="region[0]">Регион:</label>
-        <select ng-repeat="item in region_combobox" id="region[{{item.id}}]"
-                name="region[{{item.id}}]" class="form-control" ng-model="region">
-          <option ng-repeat="op in item.options" value="{{op}}">{{op}}</option>
-        </select>
+      <div class="form-group">
+        <label for="region_filter">Регион:</label>
+        <select ng-model="filter_var.region" ng-options="obj.id as obj.name for obj in regions"
+                name="region_filter" class="form-control" id="region_filter" ng-change="change_region()"></select>
       </div>
-      <div class="form-group" ng-controller="CitySelectCtrl">
-        <label for="city[0]">Город:</label>
-        <select ng-repeat="item in city_combobox" id="city[{{item.id}}]"
-                name="city[{{item.id}}]" class="form-control" ng-model="city">
-          <option ng-repeat="op in item.options" value="{{op}}">{{op}}</option>
-        </select>
+      <div class="form-group">
+        <label for="city_filter">Город:</label>
+        <select ng-model="filter_var.city" ng-options="obj.name as obj.name for obj in cities"
+                name="city_filter" class="form-control" id="city_filter" ng-change="change_city()"></select>
       </div>
-      <div class="form-actions" ng-controller="TurbazaListCtrl">
-        <button class="btn btn-success" ng-click="search()">Найти</button>
-        <button type="reset" class="btn btn-default">Сброс</button>
+      <div class="form-actions">
+        <!--<button class="btn btn-success" ng-click="search()">Найти</button>-->
+        <button type="reset" ng-click="reset()" class="btn btn-default">Сброс</button>
       </div>
     </form>
   </div>
@@ -68,52 +120,50 @@
     <a type="button" class="btn btn-default btn-xs" href="<%= new_hostel_path %>">
       <span class="glyphicon glyphicon-plus"></span> Добавить
     </a>
-    <div ng-controller="TurbazaListCtrl">
-      <div class="ts-list">
-        <% @hostels.each do |item| %>
+    <div>
+      <div class="ts-list" ng-repeat="item in turbaza_list | filter:vfilter">
         <div class="media ts-list-item">
           <span class="pull-left" href="#">
-            <img src="<%= item.photo_string %>" alt="<%= item.name %>" class="img-thumbnail" width="157" height="144">
+            <img src="{{item.image}}" alt="{{item.image_title}}" class="img-thumbnail" width="157" height="144">
           </span>
           <div class="media-body">
-            <h4 class="media-heading"><%= item.name %></h4>
-            <a type="button" class="btn btn-default btn-xs" href="<%= edit_hostel_path item %>">
+            <h4 class="media-heading">{{item.name}}</h4>
+            <a type="button" class="btn btn-default btn-xs" href="{{item.edit_path}}">
               <span class="glyphicon glyphicon-pencil"></span> Изменить
             </a>
-            <a type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#remove_<%=item.id%>">
+            <a type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#remove_{{item.id}}">
               <span class="glyphicon glyphicon-remove"></span> Удалить
             </a>
             <!-- Modal -->
-            <div class="modal fade" id="remove_<%=item.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="remove_{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Удаление <%=item.name%></h4>
+                    <h4 class="modal-title" id="myModalLabel">Удаление {{item.name}}</h4>
                   </div>
                   <div class="modal-body">
-                    Вы действительно хотите удалить турбазу "<%=item.name%>"?
+                    Вы действительно хотите удалить турбазу "{{item.name}}"?
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Нет</button>
-                    <%= link_to 'Да', item, method: :delete, :class => 'btn btn-primary' %>
+                    <a class="btn btn-primary" data-method="delete" href="/hostels/{{item.id}}" rel="nofollow">Да</a>
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
-            <p style="text-align: justify"><%= item.description %></p>
-            <p><label for="email[{{item.id}}]">e-mail:</label><a href="mailto:<%= item.email %>" id="email[{{item.id}}]"><%= item.email %></a></p>
+            <p style="text-align: justify">{{ item.description }}</p>
+            <p><label for="email[{{item.id}}]">e-mail:</label><a href="mailto:{{item.email}}" id="email[{{item.id}}]">{{item.email}}</a></p>
             <p><label for="tel[{{item.id}}]">телефон:</label><span id="tel[{{item.id}}]">
-              <%= item.city.region.country.phone_code + ' (' + item.city.phone_code + ') ' + item.phone %>
+              {{item.phone}}
             </span></p>
             <ol class="breadcrumb">
-              <li><a href="<%= edit_country_path item.city.region.country %>"><%= item.city.region.country.name %></a></li>
-              <li><a href="<%= edit_region_path item.city.region %>"><%= item.city.region.name %></a></li>
-              <li><a href="<%= edit_city_path item.city %>"><%= item.city.name %></a></li>
+              <li><a href="{{item.edit_country}}">{{item.country}}</a></li>
+              <li><a href="{{item.edit_region}}">{{item.region}}</a></li>
+              <li><a href="{{item.edit_city}}">{{item.city}}</a></li>
             </ol>
           </div>
         </div>
-        <% end %>
       </div>
     </div>
 
@@ -127,3 +177,4 @@
 
 <!-- go to top -->
 <a href="#" class="go-top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+</span>

@@ -107,3 +107,63 @@ $(document).ready ->
     $('#hostel_city_id').val(city_value)
     city = $('#hostel_city_id').val()
     get_city_code(city)
+
+
+# Код для angular приложения
+# Инициализация приложения
+hostels_filter_app = angular.module 'hostels_filter_app', []
+
+# Функция получения текста страны по ее идентификатору
+get_country_name_by_id = (id) ->
+  result = item.text for item in countries when item.value is id
+  result
+
+# Функция получения текста региона по его идентификатору
+get_region_name_by_id = (id) ->
+  result = item.name for item in regions when item.id is id
+  result
+
+# Функция получения списка регионов
+get_country_regions_by_id = (id) ->
+  result = item.regions for item in countries when item.value is id
+  result
+
+# Функция получения списка городов
+get_region_cities_by_id = (id) ->
+  result = item.cities for item in regions when item.id is id
+  result
+
+# Контроллер
+hostels_filter_app.controller 'init_filter_app_ctrl', ($scope) ->
+  $scope.turbaza_list = hostels_list; # Инициализация списка турбаз
+  $scope.countries = countries # Инициализация списка стран
+  $scope.regions = [] # Инициализация списка регионов
+  $scope.cities = [] # Инициализация списка городов
+  $scope.vfilter = {'country': '', 'region': '', 'city': ''} # Инициализация фильтра
+
+  # Смена страны
+  $scope.change_country = () ->
+    country_id = $scope.filter_var.country
+    $scope.vfilter.country = get_country_name_by_id(country_id)
+    console.log get_country_regions_by_id(country_id)
+    $scope.regions = get_country_regions_by_id(country_id)
+
+  # Смена региона
+  $scope.change_region = () ->
+    region_id = $scope.filter_var.region
+    $scope.vfilter.region = get_region_name_by_id(region_id)
+    $scope.cities = get_region_cities_by_id(region_id)
+
+  # Смена города
+  $scope.change_city = () ->
+    $scope.vfilter.city = $scope.filter_var.city
+
+  # Сброс фильтра
+  $scope.reset = () ->
+    $scope.vfilter.country = ''
+    $scope.vfilter.region = ''
+    $scope.vfilter.city = ''
+    $scope.countries = []
+    $scope.countries = countries
+    $scope.regions = []
+    $scope.cities = []
