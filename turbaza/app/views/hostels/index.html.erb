@@ -71,9 +71,9 @@
       <div class="ts-list">
         <% @hostels.each do |item| %>
         <div class="media ts-list-item">
-          <a class="pull-left" href="#">
+          <span class="pull-left" href="#">
             <img src="<%= item.photo_string %>" alt="<%= item.name %>" class="img-thumbnail" width="157" height="144">
-          </a>
+          </span>
           <div class="media-body">
             <h4 class="media-heading"><%= item.name %></h4>
             <a type="button" class="btn btn-default btn-xs" href="<%= edit_hostel_path item %>">
