@@ -25,7 +25,16 @@ var regions = [
       <% if @is_edit %>
         select_country = {'id': '<%= @city.region.country_id %>', 'name': '<%= @city.region.country.name %>'};
       <% end %>
-        var is_edit = <%= @is_edit %>;
+
+cities = [];
+
+// Для изменений
+is_edit = <% if @is_edit %>true<% else %>false<% end %>;
+<% if @is_edit %>
+    region_value = <%= @city.region_id %>;
+    country_value = <%= @city.region.country_id %>;
+city_value = [];
+<% end %>
 </script>
 
 <%= form_for(@city) do |f| %>
