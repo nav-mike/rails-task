@@ -75,6 +75,7 @@ class HostelsController < ApplicationController
   # POST /hostels.json
   def create
     @hostel = Hostel.new(hostel_params)
+    @hostel.photo_string = '/t1.jpg'
 
     respond_to do |format|
       if @hostel.save
