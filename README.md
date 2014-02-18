@@ -19,3 +19,7 @@ email:  m.navrotskiy@gmail.com
   <li><a href="http://www.screencast.com/t/tQjtc79p">cities</a></li>
 </ul>
 </p>
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nav-mike/rails-task/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
